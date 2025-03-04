@@ -1,12 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_bbq, only: [:create, :destroy]
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_bbq, only: %i[create delete]
+  before_action :set_booking, only: %i[show edit update delete]
 
-  # action for showing a booking
   def show
   end
 
-  # action for creating a new booking
   def new
     @booking = Booking.new
   end
@@ -21,7 +19,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # action for updating a booking
   def edit
   end
 
@@ -33,7 +30,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # action for deleting a booking
   def destroy
     @booking.destroy
     redirect_to bbq_path(@bbq)
