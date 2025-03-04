@@ -10,3 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Default styling:
+body {
+  font-family: "Inter", Helvetica, sans-serif;
+}
