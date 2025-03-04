@@ -1,12 +1,33 @@
-.navbar-lewagon {
+.navbar-smoke-n-go {
   justify-content: space-between;
-  background: white;
+  background: $dark-grey;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-smoke-n-go .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-smoke-n-go .navbar-brand img {
   width: 40px;
+}
+
+.navbar-brand {
+  color: $dark-orange;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0px;
+  padding: 8px;
+}
+
+.nav-item {
+  padding-right: 20px;
+}
+
+.nav-item:last-child {
+  padding: 0px;
+}
+
+.nav-link {
+  color: $dark-orange;
 }
