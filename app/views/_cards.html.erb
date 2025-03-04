@@ -1,9 +1,3 @@
-<h1>Available Barbecues</h1>
-
-<% if params[:start_date].present? && params[:end_date].present? %>
-  <p>Showing availability from <strong><%= params[:start_date] %></strong> to <strong><%= params[:end_date] %></strong></p>
-<% end %>
-
 <div class="cards ">
     <% @bbqs.each do |bbq|  %>
       <div class="card border border-secondary-subtle" style="width: 10em;">
@@ -12,7 +6,7 @@
         <h5 class="card-title h3"> <%= bbq.name %> </h5>
         <p class="card-text fs-6 text"><%= bbq.description %></p>
         <p class="card-text">£<%= bbq.price %></p>
-        <%= link_to "Book Now", new_bbq_booking_path(bbq_id: bbq.id, start_date: params[:start_date], end_date: params[:end_date]), class: "btn btn-success" %>
+        <%= link_to 'view', bbq_path(bbq), class: 'btn btn-primary' %>
       </div>
     </div>
     <% end %>

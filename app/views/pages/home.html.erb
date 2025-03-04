@@ -7,7 +7,7 @@
 <div class = "col-md-4">
   <h3>Select your dates</h3>
 
-  <%= simple_form_for(@booking, url: bbqs_path) do |f| %>
+  <%= simple_form_for(@booking, url: bbqs_path, method: :get) do |f| %>
     <%= f.input :start_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
