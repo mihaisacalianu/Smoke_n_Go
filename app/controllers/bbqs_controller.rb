@@ -16,6 +16,7 @@ class BbqsController < ApplicationController
 
   def create
     @bbq = Bbq.new(bbq_params)
+    @bbq.user = current_user
     if @bbq.save
       redirect_to bbq_path(@bbq)
     else
@@ -46,6 +47,6 @@ class BbqsController < ApplicationController
   end
 
   def bbq_params
-    params.require(:bbq).permit(:name, :description, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable)
+    params.require(:bbq).permit(:name, :description, :location, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable)
   end
 end
