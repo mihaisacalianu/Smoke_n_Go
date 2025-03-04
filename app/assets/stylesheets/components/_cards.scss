@@ -4,14 +4,21 @@
   gap: 10px;
   justify-content: center;
 }
-
-.card-body{
-  font-size: 12px;
-  height: auto;
+.img-fit{
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
-
-.card-body img {
-  width: 200px;
+.card{
+  height: 100%;
+}
+.card-body{
+  display: flex;
+  font-size: 12px;
+  height: 100%;
+  flex-direction: column;
+}
+.card-text{
+  flex-grow: 1;
 }
 
 .link a{
