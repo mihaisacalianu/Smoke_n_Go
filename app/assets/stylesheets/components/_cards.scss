@@ -1,7 +1,21 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card-body{
+  font-size: 12px;
+  height: auto;
+}
+
+.card-body img {
+  width: 200px;
+}
+
+.link a{
+  width: 100px;
 }
 
 // Smallest device
