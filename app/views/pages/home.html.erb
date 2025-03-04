@@ -1,6 +1,19 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
 <%= render "shared/cards" %>
 
 
-  <%# <%= link_to 'view', bbq_path(@bbq) %>
+<div class = "col-md-4">
+  <h3>Select your dates</h3>
+
+  <%= simple_form_for(@booking, url: bbqs_path) do |f| %>
+    <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>

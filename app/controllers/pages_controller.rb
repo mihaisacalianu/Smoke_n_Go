@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @bbqs = Bbq.all
+    @booking = Booking.new
   end
 
   def my_bookings
