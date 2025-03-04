@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @booking = Booking.new
+    @bbqs = Bbq.all
   end
 
   def my_bookings
