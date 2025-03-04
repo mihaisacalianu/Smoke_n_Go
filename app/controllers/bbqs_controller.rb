@@ -3,7 +3,7 @@ class BbqsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @bbq = Bbq.all
+    @bbqs = Bbq.all
 
     # adding in code to filter bbqs based on user dates
     if params[:start_date].present? && params[:end_date].present?
