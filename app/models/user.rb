@@ -7,9 +7,11 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :bbqs
 
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :email, presence: true, uniqueness: true
-  # validates :password, presence: true
-  validates :location, presence: true
+
+  # User validations for the following are handled via Devise (views/devise/registrations/new):
+  #   first_name
+  #   last_name
+  #   location
+  #   email (Devise also handles uniqueness)
+  #   password
 end
