@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @booking.destroy
     redirect_to bbq_path(@bbq)
   end
