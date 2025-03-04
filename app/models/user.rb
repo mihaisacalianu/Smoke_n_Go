@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :bbqs
 
-
   # User validations for the following are handled via Devise (views/devise/registrations/new):
   #   first_name
   #   last_name
