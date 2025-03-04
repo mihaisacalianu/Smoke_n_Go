@@ -4,7 +4,7 @@ class Bbq < ApplicationRecord
   has_many :users, through: :bookings
 
   fuel_type = ['charcoal', 'electric', 'gas']
-  brands = ['weber', 'traeger', 'big green egg', 'napoleon', 'yoder smokers', 'beefeaters', 'other' ]
+  brands = ['weber', 'traeger', 'big green egg', 'napoleon', 'yoder smokers', 'beefeaters', 'other']
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 50 }
@@ -12,6 +12,6 @@ class Bbq < ApplicationRecord
   validates :price, presence: true, comparison: { greater_than: 0 }
   validates :brand, inclusion: { in: brands }
   validates :fuel_type, inclusion: { in: fuel_type }
-  validates :pick_up, presence: true
-  validates :delivery, presence: true
+  # Don't need presence for pick_up and delivery
+  # Already have default options
 end
