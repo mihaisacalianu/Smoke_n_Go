@@ -9,6 +9,7 @@ class BbqsController < ApplicationController
 
   # show action for a specific bbq
   def show
+    @booking = Booking.new
   end
 
   # new action for a new bbq
