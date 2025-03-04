@@ -17,9 +17,9 @@ puts "#{User.count} users created"
 
 puts "< Creating BBQs"
 
-new_bbq_1 = Bbq.create!(name: "Big Bertha", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 2NN", price: 30.0, brand: "weber", fuel_type: "charcoal", grill_size: "large", user: new_user_1)
-new_bbq_2 = Bbq.create!(name: "Steack Machine", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 3NN", price: 15.0, brand: "other", fuel_type: "gas", grill_size: "average", user: new_user_2 )
-new_bbq_3 = Bbq.create!(name: "Small Bertha", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 2PA", price: 20.0, brand: "big green egg", fuel_type: "electric", grill_size: "small", user: new_user_3 )
+new_bbq_1 = Bbq.create!(name: "Big Bertha", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 2NN", price: 30.0, brand: "Weber", fuel_type: "Charcoal", grill_size: "2 people", user: new_user_1)
+new_bbq_2 = Bbq.create!(name: "Steack Machine", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 3NN", price: 15.0, brand: "Other", fuel_type: "Gas", grill_size: "6 people", user: new_user_2 )
+new_bbq_3 = Bbq.create!(name: "Small Bertha", description: "Whether its for a busy outdoor event or just the home, my BBQ is a fantastic choice for cooking fantastic-tasting BBQ food", location: "W11 2PA", price: 20.0, brand: "Big Green Egg", fuel_type: "Electric", grill_size: "4 people", user: new_user_3 )
 puts "#{Bbq.count} bbqs created"
 
 puts "< Creating Bookings"

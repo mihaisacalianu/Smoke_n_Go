@@ -1,1 +1,10 @@
-<h1>My BBQs</h1>
+<div class=“page-body”>
+  <h1>My BBQs
+    <% if @bbq.nil? %>
+      <%= "(0)" %>
+    <% else %>
+      <%= "(#{@bbq.count})" %>
+    <% end %>
+  </h1>
+  <%= link_to "Add BBQ", new_bbq_path, class: "btn btn-primary" %>
+</div>
