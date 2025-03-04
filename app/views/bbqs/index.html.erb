@@ -1,1 +1,14 @@
-<h1>Index page is running!</h1>
+<h1>Available Barbecues</h1>
+
+<% if params[:start_date].present? && params[:end_date].present? %>
+  <p>Showing availability from <strong><%= params[:start_date] %></strong> to <strong><%= params[:end_date] %></strong></p>
+<% end %>
+
+<% @bbqs.each do |bbq| %>
+  <div class="bbq">
+    <h2><%= bbq.name %></h2>
+    <p><%= bbq.description %></p>
+    <p>Price: <%= number_to_currency(bbq.price) %></p>
+    <%= link_to "Book Now", new_booking_path(bbq_id: bbq.id, start_date: params[:start_date], end_date: params[:end_date]), class: "btn btn-success" %>
+  </div>
+<% end %>
