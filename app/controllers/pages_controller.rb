@@ -1,5 +1,14 @@
 class PagesController < ApplicationController
-  def home
+  skip_before_action :authenticate_user!, only: :home
 
+  def home
+  end
+
+  def my_bookings
+    @bookings = current_user.bookings
+  end
+
+  def my_bbqs
+    @bbqs = current_user.bbqs
   end
 end
