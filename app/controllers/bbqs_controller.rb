@@ -38,7 +38,7 @@ class BbqsController < ApplicationController
   end
 
   # delete action for bbq
-  def delete
+  def destroy
     @bbq.destroy
     redirect_to bbqs_path, status: :see_other
   end
