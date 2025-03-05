@@ -7,7 +7,7 @@
         <div class="card-body">
           <h5 class="card-title"> <%= bbq.name %> </h5>
           <p class="card-text"> <%= bbq.description %> </p>
-          <p class="card-text"> £<%= bbq.price %> </p>
+          <p class="card-text"><%= number_to_currency(bbq.price, unit: "£", precision: 2) %></p>
           <div class="text-end">
             <%= link_to 'View', bbq_path(bbq), class: 'btn btn-primary' %>
           </div>
