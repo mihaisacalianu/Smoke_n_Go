@@ -1,24 +1,20 @@
-<h1>Available Barbecues</h1>
+<div style="width: 1000px; margin: 0 auto;">
+  <h1 class="py-3">Available Barbecues</h1>
 
-<% if params[:start_date].present? && params[:end_date].present? %>
-  <p>Showing availability from <strong><%= params[:start_date] %></strong> to <strong><%= params[:end_date] %></strong></p>
-<% end %>
-<div class="container">
-  <div class="row g-3">
-    <% @bbqs.each do |bbq|  %>
-    <div class="col-md-4 col-6">
-      <div class="card">
-        <%= image_tag "bbq.png", class: 'img-top img-fit', alt: "#{bbq.name} image"%>
-        <div class="card-body">
-          <h5 class="card-title"> <%= bbq.name %> </h5>
-          <p class="card-text"> <%= bbq.description %> </p>
-          <p class="card-text"> £<%= bbq.price %> </p>
-          <div class="text-end">
-            <%= link_to "Book Now", bbq_path(id: bbq.id, start_date: params["booking"][:start_date], end_date: params["booking"][:end_date]), class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
+  <% if params["booking"][:start_date].present? && params["booking"][:end_date].present? %>
+    <p>Showing availability from <strong><%= params["booking"][:start_date] %></strong> to <strong><%= params["booking"][:end_date] %></strong></p>
+  <% end %>
+
+  <%= render "shared/cards" %>
+  
+  <div class="map-container">
+    <h3>Map:</h3>
+    <div style="width: 100%; height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <% end %>
   </div>
+
+
 </div>

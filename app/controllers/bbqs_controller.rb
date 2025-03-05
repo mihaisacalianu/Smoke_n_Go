@@ -5,7 +5,15 @@ class BbqsController < ApplicationController
   def index
     @bbqs = Bbq.all
 
-    # Filter BBQs based on user dates
+    @markers = @bbqs.geocoded.map do |bbq|
+      {
+        lat: bbq.latitude,
+        lng: bbq.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bbq: bbq}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+
     if params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params["booking"][:start_date])
       end_date = Date.parse(params["booking"][:end_date])
