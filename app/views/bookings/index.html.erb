@@ -1,15 +1,43 @@
-<div>
-  <h1>My Bookings
-    <% if current_user.bookings.nil? %>
-      <%= "(0)" %>
-    <% else %>
-      <%= "(#{current_user.bookings.count})" %>
-    <% end %>
-  </h1>
+<div class="page-body">
+  <div class="my-bbqs-bookings-container">
+    <div class="my-bbqs-bookings-headers">
+      <h1>My Bookings
+        <% if current_user.bookings.nil? %>
+          <%= "(0)" %>
+        <% else %>
+          <%= "(#{current_user.bookings.count})" %>
+        <% end %>
+      </h1>
 
-  <% current_user.bookings.each do |booking| %>
-    <p><%= booking.bbq_id %></p>
-  <% end %>
+      <%= link_to "New Booking", root_path, class: "btn btn-primary" %>
+    </div>
 
-  <%= link_to "New Booking", root_path, class: "btn btn-primary" %>
+    <div class="my-bookings">
+      <% current_user.bookings.each do |booking| %>
+        <div class="booking-card">
+          <div>
+            <% if booking.bbq.photo.attached? %>
+              <%= cl_image_tag booking.bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "booking-bbq-image" %>
+            <% else %>
+              <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "booking-bbq-image" %>
+            <% end %>
+          </div>
+
+          <div class="booking-info-buttons-container">
+            <div class="booking-card-info">
+              <h2><%= booking.bbq.name %></h2>
+              <h4><%= booking.bbq.address %></h4>
+              <p><%= booking.bbq.description %><p>
+            </div>
+
+            <div class="booking-buttons">
+              <%= link_to "Amend", root_path, class: "btn btn-primary booking-button" %>
+              <%= link_to "Delete", root_path, class: "btn btn-danger booking-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>
