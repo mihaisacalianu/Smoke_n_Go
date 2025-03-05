@@ -4,24 +4,28 @@
   gap: 10px;
   justify-content: center;
 }
-.img-fit{
+
+.img-fit {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.card{
+
+.card {
   height: 100%;
 }
-.card-body{
+
+.card-body {
   display: flex;
   font-size: 12px;
   height: 100%;
   flex-direction: column;
 }
-.card-text{
+
+.card-text {
   flex-grow: 1;
 }
 
-.link a{
+.link a {
   width: 100px;
 }
 

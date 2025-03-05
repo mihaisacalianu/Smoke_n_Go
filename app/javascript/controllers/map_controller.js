@@ -18,6 +18,10 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
+  disconnect() {
+    this.geocoder.onRemove()
+  }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
