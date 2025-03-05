@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_bbq, only: %i[create delete]
-  before_action :set_booking, only: %i[show edit update delete]
+  before_action :set_bbq, only: %i[create destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def show
   end
