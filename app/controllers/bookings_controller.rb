@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_bbq, only: %i[create destroy]
-  before_action :set_booking, only: %i[show edit update destroy]
+  before_action :set_bbq, only: %i[create]
+  before_action :set_booking, only: %i[show edit update]
 
   def show
   end
@@ -32,8 +32,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    # Need to access the instance of the booking sent from the booking index page, then delete this (query if we need next line)
+    @bbq = @booking.bbq
     @booking.destroy
-    redirect_to bbq_path(@bbq)
+    redirect_to bookings_path
   end
 
   private
