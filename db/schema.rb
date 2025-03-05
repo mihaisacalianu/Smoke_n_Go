@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
   create_table "bbqs", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "location"
+    t.string "address"
     t.float "price"
     t.string "brand"
     t.string "fuel_type"
@@ -56,11 +56,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_bbqs_on_user_id"
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date", default: "2025-03-05"
+    t.date "start_date"
     t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "bbq_id", null: false
