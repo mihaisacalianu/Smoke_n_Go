@@ -2,7 +2,7 @@
   <div class="showpage-container">
     <div class="content">
       <div class="bbq-image">
-        <%= image_tag('bbq.png') %>
+        <%= cl_image_tag @bbq.photo.key, height: 430, width: 1000, crop: :auto %>
       </div>
 
       <div class="details-and-form">
