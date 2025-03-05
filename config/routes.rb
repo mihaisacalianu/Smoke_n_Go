@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
+  resources :pages, only: %i[my_bbqs my_bookings]
   resources :bookings, only: %i[index show edit update destroy]
 
   get "my_bbqs", to: "pages#my_bbqs"

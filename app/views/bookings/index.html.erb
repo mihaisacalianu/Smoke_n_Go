@@ -1,0 +1,15 @@
+<div>
+  <h1>My Bookings
+    <% if current_user.bookings.nil? %>
+      <%= "(0)" %>
+    <% else %>
+      <%= "(#{current_user.bookings.count})" %>
+    <% end %>
+  </h1>
+
+  <% current_user.bookings.each do |booking| %>
+    <p><%= booking.bbq_id %></p>
+  <% end %>
+
+  <%= link_to "Add BBQ", new_bbq_path, class: "btn btn-primary" %>
+</div>
