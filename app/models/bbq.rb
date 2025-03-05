@@ -15,6 +15,7 @@ class Bbq < ApplicationRecord
   validates :brand, inclusion: { in: brands }
   validates :fuel_type, inclusion: { in: fuel_type }
   validates :grill_size, inclusion: { in: grill_size }
-  # Don't need presence for pick_up and delivery
-  # Already have default options
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
