@@ -29,7 +29,7 @@ puts "< Creating Bookings"
 
 Booking.create!(user: new_user_1, bbq: new_bbq_2, start_date: Date.new(2025, 3, 6), end_date: Date.new(2025, 3, 14))
 Booking.create!(user: new_user_4, bbq: new_bbq_1, end_date: Date.new(2025, 3, 12))
-Booking.create!(user: new_user_5, bbq: new_bbq_2, start_date: Date.new(2025, 3, 9), end_date: Date.new(2025, 4, 1))
+Booking.create!(user: new_user_5, bbq: new_bbq_3, start_date: Date.new(2025, 3, 9), end_date: Date.new(2025, 4, 1))
 
 puts "#{Booking.count} bookings created"
 
