@@ -60,11 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_140451) do
   end
 
   create_table "bookings", force: :cascade do |t|
-<<<<<<< HEAD
-    t.date "start_date", default: "2025-03-05"
-=======
     t.date "start_date"
->>>>>>> master
     t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "bbq_id", null: false
