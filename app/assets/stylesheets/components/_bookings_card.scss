@@ -1,0 +1,65 @@
+.my-bookings {
+  display: flex;
+  flex-direction: column;
+}
+.booking-card {
+  margin-top: 20px;
+  overflow: hidden;
+  height: 150px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.booking-bbq-image {
+  height: 100%;
+  width: 240px;
+  margin-bottom: 0;
+  object-position: center;
+  object-fit: cover;
+}
+
+.booking-card-info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.booking-card-info h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.booking-card-info p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
+.booking-card-info {
+  padding: 16px;
+}
+
+.booking-button {
+  font-size: 12px;
+  width: 70px;
+  padding: 6px 6px;
+}
+
+.booking-button:last-child {
+  margin-top: 10px;
+}
+
+.booking-info-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-buttons-container {
+  margin-left: 20px;
+}
