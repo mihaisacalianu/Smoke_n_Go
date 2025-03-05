@@ -1,1 +1,39 @@
-<h1>Show page for a bbq</h1>
+<div class="page-body">
+  <div class="showpage-container">
+    <div class="content">
+      <div class="bbq-image">
+        <%= image_tag('bbq1.png') %>
+      </div>
+
+      <div class="details-and-form">
+        <div class="bbq-details">
+          <h1><%= @bbq.name %></h1>
+          <h4><%= @bbq.location %></h4>
+          <p><%= @bbq.description %></p>
+          <h3>Details:</h3>
+          <div class="product-details"><p><strong>Brand: </strong></p><p><%= @bbq.brand %></p></div>
+          <div class="product-details"><p><strong>Fuel Type: </strong></p><p><%= @bbq.fuel_type %></p></div>
+          <div class="product-details"><p><strong>Grill Size: </strong></p><p><%= @bbq.grill_size %></p></div>
+          <div class="map-container">
+            <h3>Map:</h3>
+          </div>
+        </div>
+
+        <div class="booking-form">
+          <h3>Book BBQ</h3>
+          <div class="booking-item"><p><strong>Price / Day: </strong></p><p><%= "£#{@bbq.price}" %><p></div>
+          <%# <div class="booking-item"><p><strong>Total Price: </strong></p><p>TBC<p></div> %>
+          <%= simple_form_for(@booking, url: bbqs_path) do |f| %>
+            <%= f.input :start_date,
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date,
+                    as: :string,
+                    input_html: { data: { controller: "datepicker" } } %>
+            <%= f.submit "Book", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

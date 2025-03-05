@@ -12,7 +12,7 @@
         <h5 class="card-title h3"> <%= bbq.name %> </h5>
         <p class="card-text fs-6 text"><%= bbq.description %></p>
         <p class="card-text">£<%= bbq.price %></p>
-        <%= link_to "Book Now", new_bbq_booking_path(bbq_id: bbq.id, start_date: params[:start_date], end_date: params[:end_date]), class: "btn btn-success" %>
+        <%= link_to "Book Now", bbq_path(id: bbq.id, start_date: params["booking"][:start_date], end_date: params["booking"][:end_date]), class: "btn btn-success" %>
       </div>
     </div>
     <% end %>
