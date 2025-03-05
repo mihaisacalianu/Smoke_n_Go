@@ -3,7 +3,11 @@
     <% @bbqs.each do |bbq|  %>
     <div class="col-md-4 col-6">
       <div class="card">
-        <%= image_tag "bbq.png", class: 'img-top img-fit', alt: "#{bbq.name} image"%>
+        <% if bbq.photo.attached? %>
+          <%= cl_image_tag bbq.photo.key, class: 'img-top img-fit', alt: "#{bbq.name} image"%>
+        <% else %>
+          <%= image_tag "bbq.png", class: 'img-top img-fit', alt: "#{bbq.name} image"%>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"> <%= bbq.name %> </h5>
           <p class="card-text"> <%= bbq.description %> </p>

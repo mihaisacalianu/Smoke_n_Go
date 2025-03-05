@@ -1,24 +1,19 @@
-<div class=“page-body”>
-  <div class="container my-5">
-    <div class="row">
-      <div class="col-md-4 col-6">
-        <h1>My BBQs
-          <% if @bbqs.nil? %>
-            <%= "(0)" %>
-          <% else %>
-            <%= "(#{@bbqs.count})" %>
-          <% end %>
-        </h1>
-      </div>
-      <div class="col-md-4 col-6">
-        <%= link_to "Add BBQ", new_bbq_path, class: "btn btn-primary" %>
-      </div>
+<div class="page-body">
+  <div class="my-bbqs-bookings-container">
+    <div class="my-bbqs-bookings-headers">
+      <h1>My BBQs
+        <% if current_user.bbqs.nil? %>
+          <%= "(0)" %>
+        <% else %>
+          <%= "(#{current_user.bbqs.count})" %>
+        <% end %>
+      </h1>
+
+      <%= link_to "Add BBQ", new_bbq_path, class: "btn btn-primary" %>
     </div>
+
+    <%= render "shared/cards" %>
   </div>
-
-<%= render "shared/cards" %>
-
-
 </div>
 
 
