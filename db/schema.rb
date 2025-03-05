@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_05_140451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
   create_table "bbqs", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "location"
+    t.string "address"
     t.float "price"
     t.string "brand"
     t.string "fuel_type"
@@ -60,7 +60,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
   end
 
   create_table "bookings", force: :cascade do |t|
+<<<<<<< HEAD
     t.date "start_date", default: "2025-03-05"
+=======
+    t.date "start_date"
+>>>>>>> master
     t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "bbq_id", null: false
@@ -80,7 +84,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111242) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "location"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

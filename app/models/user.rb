@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # User validations for the following are handled via Devise (views/devise/registrations/new):
   #   first_name
   #   last_name
-  #   location
+  #   address
   #   email (Devise also handles uniqueness)
   #   password
 end
