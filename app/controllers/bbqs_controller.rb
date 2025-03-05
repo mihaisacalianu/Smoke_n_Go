@@ -69,6 +69,6 @@ class BbqsController < ApplicationController
   end
 
   def bbq_params
-    params.require(:bbq).permit(:name, :description, :location, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable)
+    params.require(:bbq).permit(:name, :description, :address, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable)
   end
 end
