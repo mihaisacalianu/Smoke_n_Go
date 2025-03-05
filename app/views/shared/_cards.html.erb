@@ -2,7 +2,7 @@
   <div class="row g-3">
     <% @bbqs.each do |bbq|  %>
     <div class="col-md-4">
-      <div class="card">
+      <div class="card card-shadow">
         <% if bbq.photo.attached? %>
           <%= cl_image_tag bbq.photo.key, class: 'img-top img-fit', alt: "#{bbq.name} image"%>
         <% else %>
