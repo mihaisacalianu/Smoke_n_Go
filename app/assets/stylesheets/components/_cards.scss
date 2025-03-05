@@ -1,7 +1,28 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  justify-content: center;
+}
+.img-fit{
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.card{
+  height: 100%;
+}
+.card-body{
+  display: flex;
+  font-size: 12px;
+  height: 100%;
+  flex-direction: column;
+}
+.card-text{
+  flex-grow: 1;
+}
+
+.link a{
+  width: 100px;
 }
 
 // Smallest device
