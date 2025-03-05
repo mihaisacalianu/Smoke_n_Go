@@ -5,6 +5,7 @@
         <h3>List your BBQ for rental</h3>
         <%= simple_form_for @bbq do |f| %>
           <%= f.input :name, placeholder: "Name" %>
+          <%= f.input :photo, as: :file %>
           <%= f.input :description, placeholder: "Description" %>
           <%= f.input :location, placeholder: "Location" %>
           <%= f.input :price, placeholder: "Price" %>

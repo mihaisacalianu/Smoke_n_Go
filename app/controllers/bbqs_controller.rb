@@ -5,7 +5,7 @@ class BbqsController < ApplicationController
   def index
     @bbqs = Bbq.all
 
-    # adding in code to filter bbqs based on user dates
+    # Filter BBQs based on user dates
     if params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params["booking"][:start_date])
       end_date = Date.parse(params["booking"][:end_date])
@@ -22,7 +22,7 @@ class BbqsController < ApplicationController
   def show
     @booking = Booking.new
 
-    # adding in code to filter bbqs based on user dates
+    # Filter BBQs based on user dates
     if params[:start_date].present? && params[:end_date].present?
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
@@ -69,6 +69,6 @@ class BbqsController < ApplicationController
   end
 
   def bbq_params
-    params.require(:bbq).permit(:name, :description, :location, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable)
+    params.require(:bbq).permit(:name, :description, :location, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable, :photo)
   end
 end

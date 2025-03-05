@@ -2,6 +2,7 @@ class Bbq < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :users, through: :bookings
+  has_one_attached :photo
 
   fuel_type = ['Charcoal', 'Electric', 'Gas']
   brands = ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other']
