@@ -32,21 +32,19 @@ class BbqsController < ApplicationController
     @booking = Booking.new
 
     # Filter BBQs based on user dates
-    if params[:start_date].present? && params[:end_date].present?
-      start_date = Date.parse(params[:start_date])
-      end_date = Date.parse(params[:end_date])
+    if params["booking"][:start_date].present? && params["booking"][:end_date].present?
+      start_date = Date.parse(params["booking"][:start_date])
+      end_date = Date.parse(params["booking"][:end_date])
 
       @booking.start_date = start_date
       @booking.end_date = end_date
     end
 
-    @markers = @bbqs.geocoded.map do |bbq|
-      {
-        lat: bbq.latitude,
-        lng: bbq.longitude,
+    @markers = [{
+        lat: @bbq.latitude,
+        lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
-      }
-    end
+      }]
   end
 
   def new

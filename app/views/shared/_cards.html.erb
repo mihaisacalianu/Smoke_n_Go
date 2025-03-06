@@ -2,7 +2,7 @@
   <div class="row g-3">
     <% @bbqs.each do |bbq|  %>
       <div class="col-md-4">
-        <%= link_to bbq_path(bbq), class: 'card-link' do %>
+        <%= link_to bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: 'card-link' do %>
           <div class="card card-shadow">
             <% if bbq.photo.attached? %>
               <%= cl_image_tag bbq.photo.key, class: 'img-top img-fit card-img-top', alt: "#{bbq.name} image"%>

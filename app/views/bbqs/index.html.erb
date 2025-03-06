@@ -5,7 +5,7 @@
     <% if params["booking"][:start_date].present? && params["booking"][:end_date].present? %>
       <h4 class="date-availability"><%= "#{Date.parse(params["booking"][:start_date]).strftime('%-d %b')} - #{Date.parse(params["booking"][:end_date]).strftime('%-d %b %Y')}" %></h4>
     <% end %>
-
+    
     <div class="index-bbq-map-container">
       <div class="index-bbq-container">
         <% @bbqs.each do |bbq| %>
