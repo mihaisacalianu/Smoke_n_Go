@@ -44,6 +44,27 @@
 .link a {
   width: 100px;
 }
+//chatgpt
+.card-link {
+  //display: block; /* Make the anchor tag a block-level element so it covers the entire card */
+  text-decoration: none; /* Remove default underline */
+}
+
+.card {
+  cursor: pointer; /* Show pointer cursor when hovering over the card */
+  transition: transform 0.2s; /* Optional: smooth transition for hover effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Optional: add a hover zoom effect */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3; /* 4:3 aspect ratio */
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
