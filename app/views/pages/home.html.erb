@@ -9,8 +9,9 @@
             <div class="search-date d-flex justify-content-center ">
               <%= f.input :start_date,
                           as: :string,
-                          required: false,
+                          # required: false,
                           placeholder: "Select date",
+                            required: true,
                           input_html: {
                             data: { controller: "datepicker" },
                             class: "border-0 text-center w-100 date-input",
@@ -22,8 +23,8 @@
             <div class="search-date d-flex justify-content-center">
               <%= f.input :end_date,
                           as: :string,
-                          required: false,
                           placeholder: "Select date",
+                          required: true,
                           input_html: {
                             data: { controller: "datepicker" },
                               class: "border-0 text-center w-100"
