@@ -5,7 +5,18 @@
   justify-content: center;
 }
 
-.img-fit {
+.card-shadow{
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.truncate-text-lines{
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.img-fit{
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
@@ -23,6 +34,11 @@
 
 .card-text {
   flex-grow: 1;
+  margin: 0;
+}
+
+.price-text{
+  font-size: 1rem;
 }
 
 .link a {
