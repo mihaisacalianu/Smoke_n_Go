@@ -4,6 +4,7 @@
   gap: 10px;
   justify-content: center;
 }
+
 .card-shadow{
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
@@ -19,16 +20,19 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.card{
+
+.card {
   height: 100%;
 }
-.card-body{
+
+.card-body {
   display: flex;
   font-size: 12px;
   height: 100%;
   flex-direction: column;
 }
-.card-text{
+
+.card-text {
   flex-grow: 1;
   margin: 0;
 }
@@ -37,7 +41,7 @@
   font-size: 1rem;
 }
 
-.link a{
+.link a {
   width: 100px;
 }
 
