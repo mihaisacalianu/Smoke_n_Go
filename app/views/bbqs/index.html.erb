@@ -14,7 +14,10 @@
       </div>
 
       <%= simple_form_for :filters, url: bbqs_path, method: :get, html: { id: "filter-form" } do |f| %>
-        <div class="row">
+        <div class="row" data-filter-target="reset">
+          <%= hidden_field_tag :start_date, params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
+          <%= hidden_field_tag :end_date, params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
+
           <div>
             <%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'] %>
           </div>
@@ -40,15 +43,17 @@
           </div>
         </div>
         <div class="text-center mt-3">
-          <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" } %>
-          <button type="reset" class="btn btn-secondary" data-action="click->filter#reset">Reset</button>
+          <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
+          <button type="reset" class="btn btn-secondary" data-action="click->filter#reset" data-action="click->filter#sub">Reset</button>
         </div>
       <% end %>
     </div>
 
-    <% if params["booking"][:start_date].present? && params["booking"][:end_date].present? %>
-      <h4 class="date-availability"><%= "#{Date.parse(params["booking"][:start_date]).strftime('%-d %b')} - #{Date.parse(params["booking"][:end_date]).strftime('%-d %b %Y')}" %></h4>
-    <% end %>
+    <div data-filter-target="searchDates">
+      <% if @start_date && @end_date %>
+        <h4 class="date-availability"><%= "#{@start_date.strftime('%-d %b')} - #{@end_date.strftime('%-d %b %Y')}" %></h4>
+      <% end %>
+    </div>
 
     <div class="index-bbq-map-container">
       <div class="index-bbq-container">
