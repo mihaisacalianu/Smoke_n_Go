@@ -16,4 +16,12 @@ export default class extends Controller {
       this.filterBarTarget.style.display = "none";
     }
   }
+
+  submit() {
+    console.log("hello from submit action")
+    // if (this.filterBarTarget.style.display === "none") {
+    //   this.filterBarTarget.style.display = "block";
+    // } else {
+    //   this.filterBarTarget.style.display = "none";
+  }
 }

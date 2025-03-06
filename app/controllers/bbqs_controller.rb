@@ -5,6 +5,15 @@ class BbqsController < ApplicationController
   def index
     @bbqs = Bbq.all
 
+    # if params[:filters]
+    # @bbqs = @bbqs.where(brand: params[:filters][:brand]) if params[:filters][:brand].present?
+    # @bbqs = @bbqs.where(fuel_type: params[:filters][:fuel_type]) if params[:filters][:fuel_type].present?
+    # @bbqs = @bbqs.where(grill_size: params[:filters][:grill_size]) if params[:filters][:grill_size].present?
+    # @bbqs = @bbqs.where(pick_up: true) if params[:filters][:pick_up] == "1"
+    # @bbqs = @bbqs.where(delivery: true) if params[:filters][:delivery] == "1"
+    # @bbqs = @bbqs.where("price <= ?", params[:filters][:price]) if params[:filters][:price].present?
+    # end
+
     @markers = @bbqs.geocoded.map do |bbq|
       {
         lat: bbq.latitude,
@@ -13,6 +22,7 @@ class BbqsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+
 
     if params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params["booking"][:start_date])
