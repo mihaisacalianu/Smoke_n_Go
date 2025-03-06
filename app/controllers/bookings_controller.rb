@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_bbq, only: %i[create]
-  before_action :set_booking, only: %i[show edit update]
+  before_action :set_booking, only: %i[show update]
 
   def show
   end
@@ -21,18 +21,19 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def update
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render 'new', status: :unprocessable_entity
     end
   end
 
   def destroy
-    # Need to access the instance of the booking sent from the booking index page, then delete this (query if we need next line)
+    @booking = Booking.find(params[:id])
     @bbq = @booking.bbq
     @booking.destroy
     redirect_to bookings_path

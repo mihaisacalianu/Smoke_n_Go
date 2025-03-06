@@ -14,7 +14,7 @@
               <p class="card-text truncate-text-lines"> <%= bbq.description %> </p>
               <div class="container">
                 <div class="row align-items-center mt-3">
-                  <p class="card-text col-md-5 price-text"><%= number_to_currency(bbq.price, unit: "£", precision: 2) %></p>
+                  <p class="card-text col-md-5 price-text p-0"><%= "#{number_to_currency(bbq.price, unit: "£", precision: 2)} / day" %></p>
                 </div>
               </div>
             </div>
