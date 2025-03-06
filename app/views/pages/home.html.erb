@@ -1,37 +1,40 @@
-<div class="container mx-auto w-75 d-flex justify-content-center flex-column">
-  <div class="container">
-    <h1 class = "text-center mt-5" >Grill. Chill. Rent at will.</h1>
-    <div class="row container w-75 mx-auto my-5">
-      <%= simple_form_for(@booking, url: bbqs_path, method: :get) do |f| %>
-        <div class="d-flex align-items-center border rounded p-2 bg-white" style="height: 45px;">
-          <div class="flex-grow-1 ms-2 me-2 d-flex align-items-center">
-            <%= f.input :start_date,
-                        as: :string,
-                        label: false,
-                        placeholder: "Pick-up",
-                        input_html: {
-                          data: { controller: "datepicker" },
-                          class: "border-0 text-center",
-                          } %>
+  <%# d-flex justify-content-center flex-column %>
+
+  <div class="landing_container">
+    <div class="container d-flex justify-content-center flex-column ">
+      <h1 class = "text-center text-white mt-5" >Grill. Chill. Rent at will.</h1>
+      <div class="row container w-75 mx-auto my-5">
+        <%= simple_form_for(@booking, url: bbqs_path, method: :get) do |f| %>
+          <div class="d-flex align-items-center border rounded p-2 bg-white" style="height: 45px;">
+            <div class="flex-grow-1 ms-2 me-2 d-flex align-items-center">
+              <%= f.input :start_date,
+                          as: :string,
+                          label: false,
+                          placeholder: "Pick-up",
+                          input_html: {
+                            data: { controller: "datepicker" },
+                            class: "border-0 text-center",
+                            } %>
+            </div>
+            <div class="flex-grow-1 ms-2 me-2 d-flex align-items-center">
+              <%= f.input :end_date,
+                          as: :string,
+                          label: false,
+                          placeholder: "Drop-off",
+                          input_html: {
+                            data: { controller: "datepicker" },
+                            class: "border-0 text-center"
+                            } %>
+            </div>
+            <button type="submit" class="btn border-0 d-flex align-items-center">
+              <i class="fas fa-search"></i> <!-- Font Awesome Search Icon -->
+            </button>
           </div>
-          <div class="flex-grow-1 ms-2 me-2 d-flex align-items-center">
-            <%= f.input :end_date,
-                        as: :string,
-                        label: false,
-                        placeholder: "Drop-off",
-                        input_html: {
-                          data: { controller: "datepicker" },
-                          class: "border-0 text-center"
-                          } %>
-          </div>
-          <button type="submit" class="btn border-0 d-flex align-items-center">
-            <i class="fas fa-search"></i> <!-- Font Awesome Search Icon -->
-          </button>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
+<div class="container mx-auto w-75 d-flex justify-content-center flex-column mt-5">
   <div>
     <div class="row  border-bottom border-secondary text-left mb-4">
       <h2>Hot Grills</h2>

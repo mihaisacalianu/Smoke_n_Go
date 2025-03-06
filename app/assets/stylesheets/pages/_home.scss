@@ -6,3 +6,19 @@
 .booking_end_date {
   margin-bottom: 0 !important;
 }
+
+.landing_container {
+  display: flex;
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  background-image: url('landing.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.landing_container .container {
+  margin-bottom: 30px; /* Adjust this based on the space you want between the bottom of the viewport */
+}

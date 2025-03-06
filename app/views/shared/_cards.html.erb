@@ -1,27 +1,26 @@
 <div class="index-cards-container">
   <div class="row g-3">
     <% @bbqs.each do |bbq|  %>
-    <div class="col-md-4">
-      <div class="card card-shadow ">
-        <% if bbq.photo.attached? %>
-          <%= cl_image_tag bbq.photo.key, class: 'img-top img-fit', alt: "#{bbq.name} image"%>
-        <% else %>
-          <%= image_tag "bbq.png", class: 'img-top img-fit', alt: "#{bbq.name} image"%>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"> <%= bbq.name %> </h5>
-          <p class="card-text truncate-text-lines"> <%= bbq.description %> </p>
-          <div class="container">
-            <div class="row align-items-center mt-3">
-              <p class="card-text col-md-5 price-text"><%= number_to_currency(bbq.price, unit: "£", precision: 2) %></p>
-              <div class="text-end col-md-7">
-                <%= link_to 'View', bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: 'btn btn-primary' %>
+      <div class="col-md-4">
+        <%= link_to bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: 'card-link' do %>
+          <div class="card card-shadow">
+            <% if bbq.photo.attached? %>
+              <%= cl_image_tag bbq.photo.key, class: 'img-top img-fit card-img-top', alt: "#{bbq.name} image"%>
+            <% else %>
+              <%= image_tag "bbq.png", class: 'img-top img-fit card-img-top', alt: "#{bbq.name} image"%>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"> <%= bbq.name %> </h5>
+              <p class="card-text truncate-text-lines"> <%= bbq.description %> </p>
+              <div class="container">
+                <div class="row align-items-center mt-3">
+                  <p class="card-text col-md-5 price-text"><%= number_to_currency(bbq.price, unit: "£", precision: 2) %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    </div>
     <% end %>
   </div>
 </div>

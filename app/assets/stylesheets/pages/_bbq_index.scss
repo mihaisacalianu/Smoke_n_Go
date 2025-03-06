@@ -1,0 +1,24 @@
+.index-container {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+.date-availability {
+  color: $dark-orange;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.index-bbq-map-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.index-bbq-container {
+  width: 60%;
+}
+
+.index-map-container {
+  width: 35%;
+  padding-top: 20px;
+}

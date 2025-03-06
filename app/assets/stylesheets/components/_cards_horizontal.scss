@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
 }
-.booking-card {
+
+.cards-horizontal {
   margin-top: 20px;
   overflow: hidden;
   height: 160px;
@@ -12,42 +13,65 @@
   align-items: center;
 }
 
-.booking-bbq-image {
-  height: 100%;
+.cards-horizontal {
+  transition: transform 0.2s ease-in-out;
+}
+
+.cards-horizontal:hover {
+  transform: scale(1.025);
+}
+
+.cards-horizontal-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cards-horizontal-image {
+  height: 160px;
   width: 240px;
   margin-bottom: 0;
   object-position: center;
   object-fit: cover;
 }
 
-.booking-card-info h3 {
+.cards-horizontal-card-info {
+  padding: 16px;
+  width: 95%
+}
+
+.cards-horizontal-card-info h3 {
   font-size: 2rem;
   font-weight: 500px;
   margin-top: 16px;
   margin-bottom: 0px;
 }
 
-.booking-card-info h4 {
+.cards-horizontal-card-info h4 {
   color: $dark-orange;
   font-size: 0.9rem;
   font-weight: normal;
   margin-top: 8px;
 }
 
-.booking-card-info p {
+.cards-horizontal-card-info p {
   font-size: 0.75rem;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
 }
 
-.booking-card-info p:last-child {
+.cards-horizontal-card-info p:last-child {
   margin-top: 16px;
   margin-bottom: 8px;
 }
 
-.booking-card-info {
-  padding: 16px;
+.cards-horizontal-price {
+  text-align: right;
+  margin-left: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
 }
 
 .truncate-text {
