@@ -1,5 +1,60 @@
-// Specific CSS for your home-pages
-.booking_start_date {
+.landing_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100dvw;
+  min-height: calc(100dvh - 72px);
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  background-image: url('landing.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.landing_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(85, 85, 85, 0.8) 0%,
+    rgba(85, 85, 85, 0.6) 5%,
+    rgba(50, 50, 50, 0.4) 20%,
+    rgba(0, 0, 0, 0.2) 40%,
+    transparent 70%
+  );
+  z-index: 1;
+}
+
+.landing_container .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 6%;
+}
+
+.landing_container h1 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.landing_container .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.booking_start_date,
+.booking_end_date {
   margin-bottom: 0 !important;
   display: flex;
   justify-content: space-between;
@@ -12,10 +67,11 @@
   display: flex;
 }
 
-.date-submit{
+.date-submit {
   width: 70px;
 }
-.new_booking{
+
+.new_booking {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -23,33 +79,151 @@
   justify-content: center;
 }
 
-.new_booking input::placeholder{
-  opacity: 0.4;
-  color: rgb(155, 143, 143);
+.new_booking input::placeholder {
+  opacity: 0.5;
+  color: rgb(200, 190, 190);
   text-align: right;
 }
 
-.booking_end_date {
-  margin-bottom: 0 !important;
+.width {
+  width: 60%;
+}
+
+.cards-horizontal {
+  margin-top: 20px;
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 50px;
+  transition: transform 0.2s ease-in-out;
 }
 
-.landing_container {
-  display: flex;
-  width: 100dvw;
-  height: 100dvh;
-  margin: 0;
-  padding: 0;
+.cards-horizontal:hover {
+  transform: scale(1.025);
+}
+
+.cards-horizontal-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cards-horizontal-image {
+  height: 100%;
+  width: 240px;
+  margin-bottom: 0;
+  object-position: center;
   object-fit: cover;
-  background-image: url('landing.jpg');
-  background-size: cover;
-  background-position: center;
 }
 
-.landing_container .container {
-  margin-bottom: 30px; /* Adjust this based on the space you want between the bottom of the viewport */
+.cards-horizontal-card-info {
+  padding: 16px;
 }
+
+.cards-horizontal-card-info h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+
+.cards-horizontal-card-info h4 {
+  color: #FF5733;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+.cards-horizontal-price {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 16px;
+}
+
+.cards-horizontal-card-info p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+}
+
+.cards-horizontal-card-info p:last-child {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 97%;
+  display: block;
+}
+
+.my-bookings {
+  display: flex;
+  flex-direction: column;
+}
+
+// .booking_start_date {
+//   margin-bottom: 0 !important;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+//   height: 50px;
+// }
+
+// .search-date {
+//   display: flex;
+// }
+
+// .date-submit{
+//   width: 70px;
+// }
+
+// .new_booking {
+//   width: 100%;
+//   padding: 0;
+//   margin: 0;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .new_booking input::placeholder {
+//   opacity: 0.4;
+//   color: rgb(155, 143, 143);
+//   text-align: right;
+// }
+
+// .booking_end_date {
+//   margin-bottom: 0 !important;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 100%;
+//   height: 50px;
+// }
+
+// .landing_container {
+//   display: flex;
+//   width: 100dvw;
+//   min-height: calc(100dvh - 72px);
+//   margin: 0;
+//   padding: 0;
+//   object-fit: cover;
+//   background-image: url('landing.jpg');
+//   background-size: cover;
+//   background-position: center;
+// }
+
+// .landing_container .container {
+//   margin-bottom: 30px;
+// }
+
+// .width {
+//   width: 60%;
+// }

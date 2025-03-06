@@ -3,13 +3,20 @@
     <h1>Available BBQs</h1>
 
     <div data-controller="filter">
-    <button class="btn btn-outline-secondary" data-action="click->filter#toggle">
-      <i class="fas fa-filter"></i> Filter
-    </button>
+      <div class="filter-dates">
+        <div data-filter-target="searchDates">
+          <% if @start_date && @end_date %>
+            <h4 class="date-availability"><%= "#{@start_date.strftime('%-d %b')} - #{@end_date.strftime('%-d %b %Y')}" %></h4>
+          <% end %>
+        </div>
+        <button class="btn btn-outline-secondary" data-action="click->filter#toggle">
+          <i class="fas fa-filter"></i> Filter
+        </button>
+      </div>
 
     <div id="filter-sidebar" class="filter-sidebar" style="display: none;" data-filter-target="filterBar">
       <div class="filter-header">
-        <h2>Add Filters</h2>
+        <%# <h2>Add Filters</h2> %>
         <button id="close-filter" class="close-btn" data-action="click->filter#toggle">✖</button>
       </div>
 
@@ -46,12 +53,6 @@
           <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
           <button type="reset" class="btn btn-secondary" data-action="click->filter#reset" data-action="click->filter#sub">Reset</button>
         </div>
-      <% end %>
-    </div>
-
-    <div data-filter-target="searchDates">
-      <% if @start_date && @end_date %>
-        <h4 class="date-availability"><%= "#{@start_date.strftime('%-d %b')} - #{@end_date.strftime('%-d %b %Y')}" %></h4>
       <% end %>
     </div>
 

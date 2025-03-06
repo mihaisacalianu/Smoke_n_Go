@@ -3,8 +3,6 @@ class BbqsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-
-    # redirect_to root_path unless params["booking"][:start_date].present? && params["booking"][:end_date].present?
     @bbqs = Bbq.all
 
     @start_date, @end_date = extract_dates(params)
@@ -26,14 +24,12 @@ class BbqsController < ApplicationController
       @bbqs = @bbqs.where(delivery: true) if params[:filters][:delivery] == "1"
       @bbqs = @bbqs.where("price <= ?", params[:filters][:price]) if params[:filters][:price].present?
     end
-
   end
 
   def show
     @bbqs = Bbq.all
     @booking = Booking.new
 
-    # Filter BBQs based on user dates
     if params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params["booking"][:start_date])
       end_date = Date.parse(params["booking"][:end_date])
@@ -46,7 +42,7 @@ class BbqsController < ApplicationController
         lat: @bbq.latitude,
         lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
-      }]
+    }]
   end
 
   def new

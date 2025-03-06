@@ -10,7 +10,6 @@
   z-index: 1000;
 }
 
-/* Sidebar */
 .filter-sidebar {
   position: fixed;
   top: 72px;
@@ -28,12 +27,13 @@
 }
 
 .filter-header {
+  height: 50px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  background: grey;
+  align-items: left;
+  padding-bottom: 15px;
+  // border-bottom: 1px solid #ddd;
+  // background: grey;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -48,7 +48,6 @@
   margin-bottom: 15px;
 }
 
-/* Close Button */
 .close-btn {
   background: none;
   border: none;
@@ -58,8 +57,3 @@
   top: 10px;
   right: 15px;
 }
-
-// /* Show Sidebar */
-// .filter-sidebar.show {
-//   left: 0;
-// }
