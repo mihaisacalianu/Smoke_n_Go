@@ -15,8 +15,8 @@
 
       <%= simple_form_for :filters, url: bbqs_path, method: :get, html: { id: "filter-form" } do |f| %>
         <div class="row" data-filter-target="reset">
-          <%= hidden_field_tag :start_date, params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
-          <%= hidden_field_tag :end_date, params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
+          <%= hidden_field_tag "booking[start_date]", params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
+          <%= hidden_field_tag "booking[end_date]", params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
 
           <div>
             <%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'] %>

@@ -27,7 +27,6 @@ export default class extends Controller {
 
     const differenceInTime = end_date - start_date;
     const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
-    console.log(differenceInDays)
 
     const totalPrice = price * (differenceInDays + 1)
     this.displayedPriceTarget.innerHTML = `£${parseFloat(totalPrice).toFixed(2)}`
