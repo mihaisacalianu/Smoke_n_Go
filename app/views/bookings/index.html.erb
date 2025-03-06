@@ -14,17 +14,17 @@
 
     <div class="my-bookings">
       <% current_user.bookings.each do |booking| %>
-        <div class="booking-card">
+        <div class="cards-horizontal">
           <div>
             <% if booking.bbq.photo.attached? %>
-              <%= cl_image_tag booking.bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "booking-bbq-image" %>
+              <%= cl_image_tag booking.bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "cards-horizontal-image" %>
             <% else %>
-              <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "booking-bbq-image" %>
+              <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "cards-horizontal-image" %>
             <% end %>
           </div>
 
           <div class="booking-info-buttons-container">
-            <div class="booking-card-info">
+            <div class="cards-horizontal-card-info">
               <h4><%= "#{booking.start_date.strftime('%-d %b')} - #{booking.end_date.strftime('%-d %b %Y')}" %></h4>
               <h3><%= booking.bbq.name %></h3>
               <p><%= booking.bbq.address %></p>
