@@ -46,20 +46,22 @@
         <div class="booking-form">
           <h3>Book BBQ</h3>
           <div class="booking-item"><p><strong>Price / day: </strong></p><p><%= number_to_currency(@bbq.price, unit: "£", precision: 2) %></p></div>
-          <div class="booking-item"><p><strong>Total: </strong></p><p><%= number_to_currency(((@booking.end_date - @booking.start_date) * @bbq.price).to_i, unit: "£", precision: 2) %></p></div>
-          <%# <div class="booking-item"><p><strong>Total Price: </strong></p><p>TBC<p></div> %>
+          <div class="booking-item"><p><strong>Total: </strong></p>
+          <% if  params["booking"][:start_date] == "" || params["booking"][:end_date] == "" %>
+            <p>-</p>
+          <% else %>
+            <p><%= number_to_currency(((@booking.end_date - @booking.start_date) * @bbq.price).to_i, unit: "£", precision: 2) %></p>
+          <% end %>
+          </div>
+
           <%= simple_form_for [@bbq, @booking] do |f| %>
             <%= f.input :start_date,
                     as: :string,
-                    input_html: { data: { controller: "datepicker" },
-                    value: @booking.end_date
-                    },
+                    input_html: { data: { controller: "datepicker" } },
                     class: "booking-field" %>
             <%= f.input :end_date,
                     as: :string,
-                    input_html: { data: { controller: "datepicker" },
-                    value: @booking.end_date
-                    },
+                    input_html: { data: { controller: "datepicker" } },
                     class: "booking-field" %>
             <%= f.submit "Book", class: "btn btn-primary booking-button" %>
           <% end %>
