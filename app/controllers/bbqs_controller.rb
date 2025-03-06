@@ -3,15 +3,8 @@ class BbqsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-
     # redirect_to root_path unless params["booking"][:start_date].present? && params["booking"][:end_date].present?
     @bbqs = Bbq.all
-    @booking = Booking.new
-    @booking.start_date = params["booking"]["start_date"]
-    @booking.end_date = params["booking"]["end_date"]
-
-
-
     @markers = @bbqs.geocoded.map do |bbq|
       {
         lat: bbq.latitude,
@@ -44,7 +37,6 @@ class BbqsController < ApplicationController
         lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
       }]
-    raise
   end
 
   def new
