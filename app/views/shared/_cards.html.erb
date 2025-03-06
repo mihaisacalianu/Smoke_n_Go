@@ -15,7 +15,7 @@
             <div class="row align-items-center mt-3">
               <p class="card-text col-md-5 price-text"><%= number_to_currency(bbq.price, unit: "£", precision: 2) %></p>
               <div class="text-end col-md-7">
-                <%= link_to 'View', bbq_path(bbq), class: 'btn btn-primary' %>
+                <%= link_to 'View', bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
