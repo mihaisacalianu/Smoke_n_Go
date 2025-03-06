@@ -1,6 +1,6 @@
 <div class="index-cards-container">
   <div class="row g-3">
-    <% @bbqs.each do |bbq|  %>
+    <% @bbqs.first(3).each do |bbq|  %>
       <div class="col-md-4">
         <%= link_to bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: 'card-link' do %>
           <div class="card card-shadow">
