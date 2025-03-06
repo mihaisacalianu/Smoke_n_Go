@@ -1,10 +1,41 @@
 // Specific CSS for your home-pages
 .booking_start_date {
   margin-bottom: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.search-date {
+  display: flex;
+}
+
+.date-submit{
+  width: 70px;
+}
+.new_booking{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.new_booking input::placeholder{
+  opacity: 0.4;
+  color: rgb(155, 143, 143);
+  text-align: right;
 }
 
 .booking_end_date {
   margin-bottom: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
 }
 
 .landing_container {
