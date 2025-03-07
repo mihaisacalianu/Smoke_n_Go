@@ -51,7 +51,7 @@
           </div>
           <div class="text-center mt-3">
             <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
-            <%= link_to "Reset", bbqs_path(booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }), class: "btn btn-secondary", data: { action: "click->filter#reset" } %>
+            <%= link_to "Reset", "/bbqs?booking[start_date]=#{params.dig('booking', 'start_date')}&booking[end_date]=#{params.dig('booking', 'end_date')}", class: "btn btn-secondary", data: { action: "click->filter#reset" } %>
           </div>
         <% end %>
       </div>
