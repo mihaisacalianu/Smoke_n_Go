@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_bbq, only: %i[create]
-  before_action :set_booking, only: %i[show update]
+  before_action :set_bbq, only: %i[create update]
+  before_action :set_booking, only: %i[show]
 
   def show
   end
@@ -22,9 +22,15 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @markers = [{
+      lat: @booking.bbq.latitude,
+      lng: @booking.bbq.longitude,
+      marker_html: render_to_string(partial: "marker")
+    }]
   end
 
   def update
+    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to bookings_path
     else
