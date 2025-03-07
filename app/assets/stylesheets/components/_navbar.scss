@@ -1,6 +1,6 @@
 .navbar-smoke-n-go {
   justify-content: space-between;
-  background: $dark-grey;
+  background: $black;
   height: 72px;
 }
 
@@ -22,6 +22,10 @@
   padding: 8px;
 }
 
+.navbar-brand:hover {
+  color: white;
+}
+
 .nav-item {
   padding-right: 20px;
 }
@@ -32,4 +36,8 @@
 
 .nav-link {
   color: $dark-orange;
+}
+
+.nav-link:hover {
+  color: white;
 }
