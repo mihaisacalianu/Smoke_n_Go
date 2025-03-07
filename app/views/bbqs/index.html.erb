@@ -22,9 +22,9 @@
           <div class="row" data-filter-target="reset">
             <%= hidden_field_tag "booking[start_date]", params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
             <%= hidden_field_tag "booking[end_date]", params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
-            <div><%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'], include_blank: "Select brand", selected: params.dig(:filters, :brand) %></div>
-            <div><%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'], include_blank: "Select fuel type", selected: params.dig(:filters, :fuel_type) %></div>
-            <div><%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"], include_blank: "Select grill size", selected: params.dig(:filters, :grill_size) %></div>
+            <div><%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'], selected: params.dig(:filters, :brand) %></div>
+            <div><%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'], selected: params.dig(:filters, :fuel_type) %></div>
+            <div><%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"], selected: params.dig(:filters, :grill_size) %></div>
             <div><%= f.input :price, label: "Max Price", placeholder: "Enter max price", input_html: { value: params.dig(:filters, :price) } %></div>
             <div><%= f.input :pick_up, as: :boolean, label: "Pick-up Available", input_html: { checked: true }, input_html: { checked: params.dig(:filters, :pick_up) == "1" } %></div>
             <div><%= f.input :delivery, as: :boolean, label: "Delivery Available", input_html: { checked: params.dig(:filters, :delivery) == "1" } %></div>
