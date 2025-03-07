@@ -1,0 +1,15 @@
+<div class="booking-info-buttons-container">
+    <div class="cards-horizontal-card-info">
+      <h4><%= "#{booking.start_date.strftime('%-d %b')} - #{booking.end_date.strftime('%-d %b %Y')}" %></h4>
+      <h3><%= booking.bbq.name %></h3>
+      <p><%= booking.bbq.address %></p>
+      <p class="truncate-text"><%= booking.bbq.description %></p>
+    </div>
+
+    <div class="booking-buttons">
+      <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-trash booking-icon"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
