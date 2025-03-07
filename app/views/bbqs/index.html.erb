@@ -14,73 +14,78 @@
         </button>
       </div>
 
+
     <div id="filter-sidebar" class="filter-sidebar" style="display: none;" data-filter-target="filterBar">
       <div class="filter-header">
         <button id="close-filter" class="close-btn" data-action="click->filter#toggle">✖</button>
       </div>
+        <%= simple_form_for :filters, url: bbqs_path, method: :get, html: { id: "filter-form" } do |f| %>
+          <div class="row" data-filter-target="reset">
+            <%= hidden_field_tag "booking[start_date]", params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
+            <%= hidden_field_tag "booking[end_date]", params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
 
-      <%= simple_form_for :filters, url: bbqs_path, method: :get, html: { id: "filter-form" } do |f| %>
-        <div class="row" data-filter-target="reset">
-          <%= hidden_field_tag "booking[start_date]", params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
-          <%= hidden_field_tag "booking[end_date]", params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
-
-          <div>
-            <%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'] %>
-          </div>
-
-          <div>
-            <%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'] %>
-          </div>
-
-          <div>
-            <%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"] %>
-          </div>
-
-          <div>
-            <%= f.input :price, label: "Max Price", placeholder: "Enter max price" %>
-          </div>
-
-          <div>
-            <%= f.input :pick_up, as: :boolean, label: "Pick-up Available" %>
-          </div>
-
-          <div>
-            <%= f.input :delivery, as: :boolean, label: "Delivery Available" %>
-          </div>
-        </div>
-        <div class="text-center mt-3">
-          <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
-          <button type="reset" class="btn btn-secondary" data-action="click->filter#reset" data-action="click->filter#sub">Reset</button>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="index-bbq-map-container">
-      <div class="index-bbq-container">
-        <% @bbqs.each do |bbq| %>
-          <a href="<%= bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }) %>" class="cards-horizontal-link">
-            <div class="cards-horizontal">
-                <% if bbq.photo.attached? %>
-                  <%= cl_image_tag bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
-                <% else %>
-                  <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
-                <% end %>
-
-              <div class="cards-horizontal-card-info">
-                <h2><%= bbq.name %></h2>
-                <p class="truncate-text-lines"><%= bbq.description %></p>
-                <h4 class="cards-horizontal-price"><%= "#{number_to_currency(bbq.price, unit: "£", precision: 2)} / day"  %></h4>
-              </div>
+            <div>
+              <%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'], include_blank: "Select brand", selected: params.dig(:filters, :brand) %>
             </div>
-          </a>
+
+            <div>
+              <%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'], include_blank: "Select fuel type", selected: params.dig(:filters, :fuel_type) %>
+            </div>
+
+            <div>
+              <%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"], include_blank: "Select grill size", selected: params.dig(:filters, :grill_size) %>
+            </div>
+
+            <div>
+              <%= f.input :price, label: "Max Price", placeholder: "Enter max price", input_html: { value: params.dig(:filters, :price) } %>
+            </div>
+
+            <div>
+              <%= f.input :pick_up, as: :boolean, label: "Pick-up Available", input_html: { checked: true }, input_html: { checked: params.dig(:filters, :pick_up) == "1" } %>
+            </div>
+
+            <div>
+              <%= f.input :delivery, as: :boolean, label: "Delivery Available", input_html: { checked: params.dig(:filters, :delivery) == "1" } %>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
+            <%= link_to "Reset", "/bbqs?booking[start_date]=#{params.dig('booking', 'start_date')}&booking[end_date]=#{params.dig('booking', 'end_date')}", class: "btn btn-secondary", data: { action: "click->filter#reset" } %>
+          </div>
         <% end %>
       </div>
 
-      <div class="index-map-container">
-        <div style="width: 100%; height: 400px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+      <div class="index-bbq-map-container" data-action="click->filter#close" data-filter-target="removeSidebar">
+        <div class="index-bbq-container">
+          <% @bbqs.each do |bbq| %>
+            <a href="<%= bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }) %>" class="cards-horizontal-link">
+              <div class="cards-horizontal">
+                <div class="cards-horizontal-image-div">
+                  <% if bbq.photo.attached? %>
+                    <%= cl_image_tag bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
+                  <% else %>
+                    <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
+                  <% end %>
+                </div>
+
+
+                <div class="cards-horizontal-card-info">
+                  <h2><%= bbq.name %></h2>
+                  <p class="truncate-text-lines"><%= bbq.description %></p>
+                  <h4 class="cards-horizontal-price"><%= "#{number_to_currency(bbq.price, unit: "£", precision: 2)} / day"  %></h4>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        </div>
+
+        <div class="index-map-container">
+          <div style="width: 100%; height: 400px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
     </div>
