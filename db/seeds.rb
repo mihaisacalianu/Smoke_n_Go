@@ -5,7 +5,7 @@ puts "Cleaning Database"
 Booking.destroy_all
 Bbq.destroy_all
 User.destroy_all
-puts "Cleaned DB"
+puts "Cleaned Database"
 
 puts "> Creating Users"
 new_user_1 = User.create!(first_name: "Tom", last_name: "Jones", email: "tom@gmail.com", password: "123456", address: "E2 7RG")
@@ -121,7 +121,6 @@ new_bbq_20.save
 puts "> Attached 20 images"
 
 puts "> Creating Bookings"
-
 20.times do
   user = users.sample
   bbq = bbqs.sample
@@ -132,4 +131,4 @@ puts "> Creating Bookings"
 end
 puts "#{Booking.count} bookings created"
 
-puts "You're Welcome"
+puts "All done! You're welcome..."

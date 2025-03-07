@@ -14,7 +14,7 @@
 
     <div class="my-bookings">
       <% current_user.bookings.each do |booking| %>
-        <a href="<%= bbq_path(booking.bbq) %>" class="cards-horizontal-link">
+        <a href="<%= edit_bbq_booking_path(booking.bbq_id, booking.id) %>" class="cards-horizontal-link">
           <div class="cards-horizontal">
             <div>
               <% if booking.bbq.photo.attached? %>
@@ -33,9 +33,6 @@
               </div>
 
               <div class="booking-buttons">
-                <%# <%= link_to root_path, class: "icon" do %>
-                  <%# <i class="fa-solid fa-pen-to-square"></i> %>
-                <%# <% end %>
                 <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
                   <i class="fa-solid fa-trash booking-icon"></i>
                 <% end %>
@@ -45,6 +42,5 @@
         </a>
       <% end %>
     </div>
-
   </div>
 </div>

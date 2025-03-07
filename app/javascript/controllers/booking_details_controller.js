@@ -5,12 +5,17 @@ export default class extends Controller {
 
   connect() {
     const price = this.element.dataset.bbqPrice;
-    const start_date = new Date(this.element.dataset.bookingStart)
-    const end_date = new Date(this.element.dataset.bookingEnd)
 
-    const differenceInTime = end_date - start_date
-    const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
-    this.initalDetails(price, differenceInDays)
+    if ((this.element.dataset.bookingStart === "") && (this.element.dataset.bookingEnd === "")) {
+      this.displayedPriceTarget.innerHTML = `-`
+      this.displayedDaysTarget.innerHTML = `-`
+    } else {
+      const start_date = new Date(this.element.dataset.bookingStart)
+      const end_date = new Date(this.element.dataset.bookingEnd)
+      const differenceInTime = end_date - start_date
+      const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
+      this.initalDetails(price, differenceInDays)
+    }
   }
 
   initalDetails(price, differenceInDays) {
