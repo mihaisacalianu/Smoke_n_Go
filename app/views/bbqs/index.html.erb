@@ -61,13 +61,11 @@
           <% @bbqs.each do |bbq| %>
             <a href="<%= bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }) %>" class="cards-horizontal-link">
               <div class="cards-horizontal">
-                <div class="cards-horizontal-image-div">
-                  <% if bbq.photo.attached? %>
-                    <%= cl_image_tag bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
-                  <% else %>
-                    <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
-                  <% end %>
-                </div>
+                <% if bbq.photo.attached? %>
+                  <%= cl_image_tag bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
+                <% else %>
+                  <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{bbq.name} image", class: "cards-horizontal-image" %>
+                <% end %>
                 <div class="cards-horizontal-card-info">
                   <h2><%= bbq.name %></h2>
                   <p class="truncate-text-lines"><%= bbq.description %></p>
