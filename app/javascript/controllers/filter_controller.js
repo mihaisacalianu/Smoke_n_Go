@@ -4,12 +4,10 @@ export default class extends Controller {
   static targets = ["filterBar", "searchDates", "reset", "startDate", "endDate"]
 
   connect() {
-    console.log("hello from filter controller")
     this.filterBarTarget.style.display = "none";
   }
 
   toggle() {
-    console.log("hello from toggle action")
     if (this.filterBarTarget.style.display === "none") {
       this.filterBarTarget.style.display = "block";
     } else {
