@@ -18,9 +18,9 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
-  disconnect() {
-    this.geocoder.onRemove()
-  }
+  // disconnect() {
+  //   this.geocoder.onRemove()
+  // }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
