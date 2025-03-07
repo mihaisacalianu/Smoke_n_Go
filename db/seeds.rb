@@ -121,6 +121,9 @@ new_bbq_20.save
 puts "> Attached 20 images"
 
 puts "> Creating Bookings"
+
+users = [new_user_1, new_user_2, new_user_3, new_user_4, new_user_5]
+bbqs = (1..20).map { |i| eval("new_bbq_#{i}") }
 20.times do
   user = users.sample
   bbq = bbqs.sample
