@@ -29,11 +29,15 @@
 }
 
 .cards-horizontal-image {
-  height: 160px;
+  height: 100%;
   width: 300px;
   margin-bottom: 0;
   object-position: center;
   object-fit: cover;
+}
+
+.image-height-override {
+  height: 160px;
 }
 
 .cards-horizontal-card-info {
@@ -57,9 +61,9 @@
 
 .cards-horizontal-card-info h4 {
   color: $dark-orange;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 1rem;
 }
 
 .cards-horizontal-card-info p {

@@ -14,7 +14,6 @@
         </button>
       </div>
 
-
     <div id="filter-sidebar" class="filter-sidebar" style="display: none;" data-filter-target="filterBar">
       <div class="filter-header">
         <button id="close-filter" class="close-btn" data-action="click->filter#toggle">✖</button>
@@ -23,30 +22,12 @@
           <div class="row" data-filter-target="reset">
             <%= hidden_field_tag "booking[start_date]", params.dig("booking", :start_date), data: { filter_target: "startDate" } %>
             <%= hidden_field_tag "booking[end_date]", params.dig("booking", :end_date), data: { filter_target: "endDate" } %>
-
-            <div>
-              <%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'], include_blank: "Select brand", selected: params.dig(:filters, :brand) %>
-            </div>
-
-            <div>
-              <%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'], include_blank: "Select fuel type", selected: params.dig(:filters, :fuel_type) %>
-            </div>
-
-            <div>
-              <%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"], include_blank: "Select grill size", selected: params.dig(:filters, :grill_size) %>
-            </div>
-
-            <div>
-              <%= f.input :price, label: "Max Price", placeholder: "Enter max price", input_html: { value: params.dig(:filters, :price) } %>
-            </div>
-
-            <div>
-              <%= f.input :pick_up, as: :boolean, label: "Pick-up Available", input_html: { checked: true }, input_html: { checked: params.dig(:filters, :pick_up) == "1" } %>
-            </div>
-
-            <div>
-              <%= f.input :delivery, as: :boolean, label: "Delivery Available", input_html: { checked: params.dig(:filters, :delivery) == "1" } %>
-            </div>
+            <div><%= f.input :brand, label: "Brand", prompt: "Select Brand", collection: ['Weber', 'Traeger', 'Big Green Egg', 'Napoleon', 'Yoder Smokers', 'Beefeaters', 'Other'], include_blank: "Select brand", selected: params.dig(:filters, :brand) %></div>
+            <div><%= f.input :fuel_type, label: "Fuel Type", prompt: "Select Fuel Type", collection: ['Charcoal', 'Electric', 'Gas'], include_blank: "Select fuel type", selected: params.dig(:filters, :fuel_type) %></div>
+            <div><%= f.input :grill_size, label: "Grill Size", prompt: "Select Grill Size", collection: ["2 people", "4 people", "6 people", "8 people", "10+ people"], include_blank: "Select grill size", selected: params.dig(:filters, :grill_size) %></div>
+            <div><%= f.input :price, label: "Max Price", placeholder: "Enter max price", input_html: { value: params.dig(:filters, :price) } %></div>
+            <div><%= f.input :pick_up, as: :boolean, label: "Pick-up Available", input_html: { checked: true }, input_html: { checked: params.dig(:filters, :pick_up) == "1" } %></div>
+            <div><%= f.input :delivery, as: :boolean, label: "Delivery Available", input_html: { checked: params.dig(:filters, :delivery) == "1" } %></div>
           </div>
           <div class="text-center mt-3">
             <%= f.submit "Apply Filters", class: "btn btn-primary", data: { action: "click->filter#submit" }%>
@@ -54,7 +35,6 @@
           </div>
         <% end %>
       </div>
-
 
       <div class="index-bbq-map-container" data-action="click->filter#close" data-filter-target="removeSidebar">
         <div class="index-bbq-container">
