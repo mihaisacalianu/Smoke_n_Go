@@ -5,8 +5,8 @@
     <div data-controller="filter">
       <div class="filter-dates">
         <div data-filter-target="searchDates">
-          <% if @start_date && @end_date %>
-            <h4 class="date-availability"><%= "#{@start_date.strftime('%-d %b')} - #{@end_date.strftime('%-d %b %Y')}" %></h4>
+          <% if @start_date.present? && @end_date.present? %>
+            <h4 class="date-availability"><%= "#{Date.parse(@start_date).strftime('%-d %b')} - #{Date.parse(@end_date).strftime('%-d %b %Y')}" %></h4>
           <% end %>
         </div>
         <button class="btn btn-outline-secondary" data-action="click->filter#toggle">
