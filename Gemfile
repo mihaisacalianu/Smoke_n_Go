@@ -35,7 +35,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "cloudinary"
 gem "geocoder"
-gem "importmap-rails", "~> 1.2.3"
 gem 'dotenv-rails'
 
 # Use Redis adapter to run Action Cable in production

@@ -3,10 +3,8 @@ class BbqsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    # redirect_to root_path unless params["booking"][:start_date].present? && params["booking"][:end_date].present?
     @bbqs = Bbq.all
-
-    @start_date, @end_date = extract_dates(params)
-
     @markers = @bbqs.geocoded.map do |bbq|
       {
         lat: bbq.latitude,
@@ -29,14 +27,9 @@ class BbqsController < ApplicationController
   def show
     @bbqs = Bbq.all
     @booking = Booking.new
-
-    if params["booking"][:start_date].present? && params["booking"][:end_date].present?
-      start_date = Date.parse(params["booking"][:start_date])
-      end_date = Date.parse(params["booking"][:end_date])
-
-      @booking.start_date = start_date
-      @booking.end_date = end_date
-    end
+    @start_date, @end_date = extract_dates(params)
+    @booking.start_date = @start_date
+    @booking.end_date = @end_date
 
     @markers = [{
         lat: @bbq.latitude,
@@ -89,7 +82,7 @@ class BbqsController < ApplicationController
     if params[:start_date].present? && params[:end_date].present?
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
-    elsif params.dig(:booking, :start_date).present? && params.dig(:booking, :end_date).present?
+    elsif params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params[:booking][:start_date])
       end_date = Date.parse(params[:booking][:end_date])
     end
@@ -98,3 +91,6 @@ class BbqsController < ApplicationController
     [nil, nil] # Handles invalid date errors
   end
 end
+
+
+# {"booking"=>{"end_date"=>"2025-03-20", "start_date"=>"2025-03-19"}, "id"=>"40"}
