@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-        <h3>List your BBQ for rental</h3>
+        <h3 class="add-bbq-header">List your BBQ for rental</h3>
         <%= simple_form_for @bbq do |f| %>
           <%= f.input :name, placeholder: "Name" %>
           <%= f.input :photo, as: :file %>
@@ -14,7 +14,7 @@
           <%= f.input :grill_size, prompt: "Please select ...", :collection => ["2 people", "4 people", "6 people", "8 people", "10+ people"] %>
           <%= f.input :pick_up, prompt: "Please select ..." %>
           <%= f.input :delivery, prompt: "Please select ..." %>
-          <%= f.submit class: "btn btn-flat" %>
+          <%= f.submit "Add BBQ", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
