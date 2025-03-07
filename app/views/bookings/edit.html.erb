@@ -1,0 +1,76 @@
+<%# <a href="<%= bbq_path(booking.bbq, booking: { start_date: booking.start_date, end_date: booking.end_date }) %>
+
+
+<div class="page-body">
+  <div class="showpage-container">
+    <div class="content">
+      <div class="bbq-image">
+        <% if @booking.bbq.photo.attached? %>
+          <%= cl_image_tag @booking.bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{@booking.bbq.name} image"%>
+        <% else %>
+          <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{@booking.bbq.name} image"%>
+        <% end %>
+      </div>
+
+      <div class="details-and-form">
+        <div class="bbq-details">
+          <h1><%= @booking.bbq.name %></h1>
+          <h4><%= @booking.bbq.address %></h4>
+          <p><%= @booking.bbq.description %></p>
+
+
+        <div class="product-details">
+          <h3>Details:</h3>
+          <div class="row d-flex">
+            <div class="product-detail col-4 flex-column">
+              <strong>Brand:</strong>
+              <strong>Fuel Type:</strong>
+              <strong>Grill Size:</strong>
+            </div>
+            <div class="product-detail col-4 flex-column">
+              <span><%= @booking.bbq.brand %></span>
+              <span><%= @booking.bbq.fuel_type %></span>
+              <span><%= @booking.bbq.grill_size %></span>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="map-container">
+            <h3>Map:</h3>
+            <div style="width: 100%; height: 400px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-form" data-controller="booking-details" data-bbq-price="<%= @booking.bbq.price %>" data-booking-start="<%= @booking.start_date %>" data-booking-end="<%= @booking.end_date %>">
+          <h3>Update Booking</h3>
+          <div class="booking-item">
+            <p><strong>Number of days: </strong></p>
+            <p data-booking-details-target="displayedDays">-</p>
+          </div>
+          <div class="booking-item"><p><strong>Price / day: </strong></p><p><%= number_to_currency(@booking.bbq.price, unit: "£", precision: 2) %></p></div>
+          <div class="booking-item">
+            <p><strong>Total Price: </strong></p>
+            <p data-booking-details-target="displayedPrice">-</p>
+          </div>
+
+          <%= simple_form_for [@booking.bbq, @booking], method: :patch do |f| %>
+            <%= f.input :start_date,
+                    as: :string,
+                    input_html: { data: { controller: "datepicker", booking_details_target: "startDate", action: "change->booking-details#updateDetails" } },
+                    class: "booking-field" %>
+            <%= f.input :end_date,
+                    as: :string,
+                    input_html: { data: { controller: "datepicker", booking_details_target: "endDate", action: "change->booking-details#updateDetails" } },
+                    class: "booking-field" %>
+            <%= f.submit "Update", class: "btn btn-primary booking-button" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

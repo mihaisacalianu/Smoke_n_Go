@@ -54,18 +54,19 @@
             <p><strong>Total Price: </strong></p>
             <p data-booking-details-target="displayedPrice">-</p>
           </div>
-
-          <%= simple_form_for [@bbq, @booking] do |f| %>
-            <%= f.input :start_date,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker", booking_details_target: "startDate", action: "change->booking-details#updateDetails" } },
-                    class: "booking-field" %>
-            <%= f.input :end_date,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker", booking_details_target: "endDate", action: "change->booking-details#updateDetails" } },
-                    class: "booking-field" %>
-            <%= f.submit "Book", class: "btn btn-primary booking-button" %>
-          <% end %>
+          <div class="show-book-fields">
+            <%= simple_form_for [@bbq, @booking] do |f| %>
+              <%= f.input :start_date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker", booking_details_target: "startDate", action: "change->booking-details#updateDetails" } },
+                      class: "booking-field" %>
+              <%= f.input :end_date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker", booking_details_target: "endDate", action: "change->booking-details#updateDetails" } },
+                      class: "booking-field" %>
+              <%= f.submit "Book", class: "btn btn-primary booking-button" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

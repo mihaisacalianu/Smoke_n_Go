@@ -1,3 +1,6 @@
-<h2><%= bbq.name %></h2>
-<p><%= bbq.address %></p>
-<h4><%= number_to_currency(bbq.price, unit: "£", precision: 2)%> / day</h4>
+<div>
+  <h2><%= bbq.name %></h2>
+  <p><strong>Grill Size:</strong> <%= bbq.grill_size %></p>
+  <h4><%= number_to_currency(bbq.price, unit: "£", precision: 2) %> / day</h4>
+</div>
+

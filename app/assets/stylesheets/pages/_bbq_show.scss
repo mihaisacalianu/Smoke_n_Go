@@ -52,6 +52,13 @@
   height: fit-content;
 }
 
+#new_booking{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+}
+
 .product-details-category {
   margin-right: 10px;
 }
@@ -81,6 +88,10 @@
 
 .booking-field {
   margin: 20px;
+  border-bottom: 2px solid red;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
 .booking-button {
