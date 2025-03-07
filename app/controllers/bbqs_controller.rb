@@ -5,14 +5,8 @@ class BbqsController < ApplicationController
   def index
     # redirect_to root_path unless params["booking"][:start_date].present? && params["booking"][:end_date].present?
     @bbqs = Bbq.all
-    @markers = @bbqs.geocoded.map do |bbq|
-      {
-        lat: bbq.latitude,
-        lng: bbq.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {bbq: bbq}),
-        marker_html: render_to_string(partial: "marker")
-      }
-    end
+    @start_date = params["booking"][:start_date]
+    @end_date = params["booking"][:end_date]
 
     if params[:filters]
       @bbqs = @bbqs.where(brand: params[:filters][:brand]) if params[:filters][:brand].present?
@@ -21,6 +15,9 @@ class BbqsController < ApplicationController
       @bbqs = @bbqs.where(pick_up: true) if params[:filters][:pick_up] == "1"
       @bbqs = @bbqs.where(delivery: true) if params[:filters][:delivery] == "1"
       @bbqs = @bbqs.where("price <= ?", params[:filters][:price]) if params[:filters][:price].present?
+      markers
+    else
+      markers
     end
   end
 
@@ -76,6 +73,17 @@ class BbqsController < ApplicationController
 
   def bbq_params
     params.require(:bbq).permit(:name, :description, :address, :price, :brand, :fuel_type, :grill_size, :pick_up, :delivery, :dates_unavailable, :photo)
+  end
+
+  def markers
+    @markers = @bbqs.geocoded.map do |bbq|
+      {
+        lat: bbq.latitude,
+        lng: bbq.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {bbq: bbq}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def extract_dates(params)
