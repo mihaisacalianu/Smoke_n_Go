@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :bbqs do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create edit update]
   end
 
   resources :pages, only: %i[my_bbqs]
-  resources :bookings, only: %i[index show edit update destroy]
+  resources :bookings, only: %i[index show destroy]
 
   get "my_bbqs", to: "pages#my_bbqs"
   get "my_bookings", to: "pages#my_bookings"
