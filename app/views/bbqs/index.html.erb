@@ -38,7 +38,7 @@
 
       <div class="index-bbq-map-container" data-action="click->filter#close" data-filter-target="removeSidebar">
         <div class="index-bbq-container">
-          <% @bbqs.each do |bbq| %>
+          <% @bbqs.order(:name).each do |bbq| %>
             <a href="<%= bbq_path(bbq, booking: { start_date: params.dig("booking", "start_date"), end_date: params.dig("booking", "end_date") }) %>" class="cards-horizontal-link">
               <div class="cards-horizontal">
                 <% if bbq.photo.attached? %>
