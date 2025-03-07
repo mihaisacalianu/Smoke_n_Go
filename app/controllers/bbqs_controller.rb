@@ -22,6 +22,7 @@ class BbqsController < ApplicationController
       @bbqs = @bbqs.where(delivery: true) if params[:filters][:delivery] == "1"
       @bbqs = @bbqs.where("price <= ?", params[:filters][:price]) if params[:filters][:price].present?
     end
+
   end
 
   def show
