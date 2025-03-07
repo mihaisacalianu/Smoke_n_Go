@@ -17,21 +17,25 @@ class BbqsController < ApplicationController
       markers
     else
       markers
-    ends
-    
+    end
+
   end
 
   def show
     @booking = Booking.new
-    @start_date = params["booking"][:start_date]
-    @end_date = params["booking"][:end_date]
+    if params["booking"] && params["booking"][:start_date].present? && params["booking"][:end_date].present?
+      @booking.start_date = params["booking"][:start_date]
+      @booking.end_date = params["booking"][:end_date]
+    else
+      @booking.start_date = ""
+      @booking.end_date = ""
+    end
 
     @markers = [{
         lat: @bbq.latitude,
         lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
     }]
-    show
   end
 
   def new
@@ -85,19 +89,19 @@ class BbqsController < ApplicationController
     end
   end
 
-  def extract_dates(params)
-    if params[:start_date].present? && params[:end_date].present?
-      start_date = Date.parse(params[:start_date])
-      end_date = Date.parse(params[:end_date])
-    elsif params["booking"][:start_date].present? && params["booking"][:end_date].present?
-      start_date = Date.parse(params[:booking][:start_date])
-      end_date = Date.parse(params[:booking][:end_date])
-    else
-      start_date = "-"
-      end_date = "-"
-    end
-    [start_date, end_date]
-  rescue ArgumentError
-    [nil, nil]
-  end
+#   def extract_dates(params)
+#     if params[:start_date].present? && params[:end_date].present?
+#       start_date = Date.parse(params[:start_date])
+#       end_date = Date.parse(params[:end_date])
+#     elsif params["booking"][:start_date].present? && params["booking"][:end_date].present?
+#       start_date = Date.parse(params[:booking][:start_date])
+#       end_date = Date.parse(params[:booking][:end_date])
+#     else
+#       start_date = "-"
+#       end_date = "-"
+#     end
+#     [start_date, end_date]
+#   rescue ArgumentError
+#     [nil, nil]
+#   end
 end
