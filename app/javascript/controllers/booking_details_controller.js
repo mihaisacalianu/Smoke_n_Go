@@ -27,14 +27,19 @@ export default class extends Controller {
   updateDetails(event) {
     const price = this.element.dataset.bbqPrice
 
-    const start_date = new Date(this.startDateTarget.value)
-    const end_date = new Date(this.endDateTarget.value)
+    if ((this.startDateTarget.value === "") || (this.endDateTarget.value === "")) {
+      this.displayedPriceTarget.innerHTML = `-`
+      this.displayedDaysTarget.innerHTML = `-`
+    } else {
+      const start_date = new Date(this.startDateTarget.value)
+      const end_date = new Date(this.endDateTarget.value)
 
-    const differenceInTime = end_date - start_date;
-    const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
+      const differenceInTime = end_date - start_date;
+      const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
 
-    const totalPrice = price * (differenceInDays + 1)
-    this.displayedPriceTarget.innerHTML = `£${parseFloat(totalPrice).toFixed(2)}`
-    this.displayedDaysTarget.innerHTML = `${differenceInDays + 1}`
+      const totalPrice = price * (differenceInDays + 1)
+      this.displayedPriceTarget.innerHTML = `£${parseFloat(totalPrice).toFixed(2)}`
+      this.displayedDaysTarget.innerHTML = `${differenceInDays + 1}`
+    }
   }
 }
