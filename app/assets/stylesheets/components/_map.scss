@@ -1,8 +1,29 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 180px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+}
+
+.mapboxgl-popup h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #0E0101;
+  font-weight: bold;
+}
+
+.mapboxgl-popup p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #6C757D;
+}
+
+.mapboxgl-popup .price {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #F07C5B;
 }
