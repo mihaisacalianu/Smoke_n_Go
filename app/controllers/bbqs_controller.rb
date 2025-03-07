@@ -27,7 +27,6 @@ class BbqsController < ApplicationController
   def show
     @bbqs = Bbq.all
     @booking = Booking.new
-
     @start_date, @end_date = extract_dates(params)
     @booking.start_date = @start_date
     @booking.end_date = @end_date
@@ -36,7 +35,7 @@ class BbqsController < ApplicationController
         lat: @bbq.latitude,
         lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
-      }]
+    }]
   end
 
   def new

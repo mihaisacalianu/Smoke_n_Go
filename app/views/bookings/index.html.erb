@@ -14,7 +14,7 @@
 
     <div class="my-bookings">
       <% current_user.bookings.each do |booking| %>
-        <a href="<%= edit_booking_path(booking) %>" class="cards-horizontal-link">
+        <a href="<%= bbq_path(booking.bbq) %>" class="cards-horizontal-link">
           <div class="cards-horizontal">
             <div>
               <% if booking.bbq.photo.attached? %>
