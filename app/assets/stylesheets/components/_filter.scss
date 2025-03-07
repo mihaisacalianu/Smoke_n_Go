@@ -18,7 +18,7 @@
   height: -webkit-fill-available;
   background: white;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  padding: 16px;
   overflow: scroll;
   transition: left 0.3s ease-in-out;
   z-index: 999;
@@ -33,7 +33,7 @@
   align-items: left;
   padding-bottom: 15px;
   // border-bottom: 1px solid #ddd;
-  // background: grey;
+  background: white;
   position: sticky;
   top: 0;
   z-index: 1000;

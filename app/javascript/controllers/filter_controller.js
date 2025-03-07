@@ -25,18 +25,18 @@ export default class extends Controller {
   }
 
   reset(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     const startDate = this.startDateTarget.value;
     const endDate = this.endDateTarget.value;
 
-    this.resetTarget.querySelectorAll("select, input").forEach(input => {
-      if (input.type === "checkbox") {
-        input.checked = false;
-      } else {
-        input.value = "";
-      }
-    });
+    // this.resetTarget.querySelectorAll("select, input").forEach(input => {
+    //   if (input.type === "checkbox") {
+    //     input.checked = false;
+    //   } else {
+    //     input.value = "";
+    //   }
+    // });
 
     // Restore start_date and end_date fields (preserve booking dates)
     this.startDateTarget.value = startDate;
