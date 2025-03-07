@@ -17,21 +17,21 @@ class BbqsController < ApplicationController
       markers
     else
       markers
-    end
+    ends
+    
   end
 
   def show
-    @bbqs = Bbq.all
     @booking = Booking.new
-    @start_date, @end_date = extract_dates(params)
-    @booking.start_date = @start_date
-    @booking.end_date = @end_date
+    @start_date = params["booking"][:start_date]
+    @end_date = params["booking"][:end_date]
 
     @markers = [{
         lat: @bbq.latitude,
         lng: @bbq.longitude,
         marker_html: render_to_string(partial: "marker")
     }]
+    show
   end
 
   def new
@@ -92,6 +92,9 @@ class BbqsController < ApplicationController
     elsif params["booking"][:start_date].present? && params["booking"][:end_date].present?
       start_date = Date.parse(params[:booking][:start_date])
       end_date = Date.parse(params[:booking][:end_date])
+    else
+      start_date = "-"
+      end_date = "-"
     end
     [start_date, end_date]
   rescue ArgumentError
