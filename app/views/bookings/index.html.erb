@@ -16,23 +16,19 @@
       <% current_user.bookings.each do |booking| %>
         <a href="<%= edit_bbq_booking_path(booking.bbq_id, booking.id) %>" class="cards-horizontal-link">
           <div class="cards-horizontal">
-            <div>
+            <div class="image-height-override">
               <% if booking.bbq.photo.attached? %>
                 <%= cl_image_tag booking.bbq.photo.key, height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "cards-horizontal-image" %>
               <% else %>
                 <%= image_tag "bbq.png", height: 430, width: 1000, crop: :auto, alt: "#{booking.bbq.name} image", class: "cards-horizontal-image" %>
               <% end %>
             </div>
-
-            <div class="booking-info-buttons-container">
-              <div class="cards-horizontal-card-info">
-                <h4><%= "#{booking.start_date.strftime('%-d %b')} - #{booking.end_date.strftime('%-d %b %Y')}" %></h4>
-                <h3><%= booking.bbq.name %></h3>
-                <p><%= booking.bbq.address %></p>
-                <p class="truncate-text"><%= booking.bbq.description %></p>
-              </div>
-
-              <div class="booking-buttons">
+            <div class="cards-horizontal-card-info">
+              <h4><%= "#{booking.start_date.strftime('%-d %b')} - #{booking.end_date.strftime('%-d %b %Y')}" %></h4>
+              <h3><%= booking.bbq.name %></h3>
+              <p><%= booking.bbq.address %></p>
+              <p class="truncate-text"><%= truncate(booking.bbq.description, length: 115) %></p>
+              <div>
                 <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
                   <i class="fa-solid fa-trash booking-icon"></i>
                 <% end %>

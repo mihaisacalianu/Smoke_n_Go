@@ -29,16 +29,27 @@
 }
 
 .cards-horizontal-image {
-  // height: 160px;
+  height: 100%;
   width: 300px;
   margin-bottom: 0;
   object-position: center;
   object-fit: cover;
 }
 
+.image-height-override {
+  height: 160px;
+}
+
 .cards-horizontal-card-info {
   padding: 16px;
-  width: 95%
+  width: 95%;
+  position: relative;
+}
+
+.cards-horizontal-card-info div {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
 }
 
 .cards-horizontal-card-info h3 {
@@ -50,9 +61,9 @@
 
 .cards-horizontal-card-info h4 {
   color: $dark-orange;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 1rem;
 }
 
 .cards-horizontal-card-info p {
@@ -75,14 +86,6 @@
   display: block;
 }
 
-.truncate-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 97%;
-  display: block;
-}
-
 .booking-info-buttons-container {
   display: flex;
   justify-content: space-between;
@@ -96,5 +99,5 @@
 .booking-icon {
   color: grey;
   font-size: 12px;
-  margin-bottom: 26px;
+  margin-bottom: 12px;
 }
