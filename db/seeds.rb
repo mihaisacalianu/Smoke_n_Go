@@ -1,4 +1,5 @@
 require 'date'
+require 'open-uri'
 
 puts "Cleaning Database"
 Booking.destroy_all
@@ -36,6 +37,88 @@ new_bbq_18 = Bbq.create!(name: "Grill Titan", description: "A massive, high-perf
 new_bbq_19 = Bbq.create!(name: "Urban Flame", description: "A stylish and compact charcoal grill designed for city dwellers who love BBQing on balconies or rooftops. Its efficient heat retention allows for fast and flavorful grilling.", address: "Covent Garden, London", price: rand(10..65), brand: "Weber", fuel_type: "Charcoal", grill_size: "4 people", user: new_user_1)
 new_bbq_20 = Bbq.create!(name: "Smoker XL", description: "A top-tier smoker with an automated wood pellet feeding system for long, slow smoking sessions. Ideal for briskets, ribs, and pulled pork with an unmatched smoky flavor.", address: "Borough Market, London", price: rand(10..65), brand: "Traeger", fuel_type: "Charcoal", grill_size: "8 people", user: new_user_5)
 puts "#{Bbq.count} bbqs created"
+
+puts "> Attaching images to BBQs"
+image_1 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq1_kffcgv.jpg").open
+new_bbq_1.photo.attach(io: image_1, filename: "bbq.png", content_type: "image/png")
+new_bbq_1.save
+
+image_2 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq2_qifobd.jpg").open
+new_bbq_2.photo.attach(io: image_2, filename: "bbq.png", content_type: "image/png")
+new_bbq_2.save
+
+image_3 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq3_mzyroq.jpg").open
+new_bbq_3.photo.attach(io: image_3, filename: "bbq.png", content_type: "image/png")
+new_bbq_3.save
+
+image_4 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq4_whzf9z.jpg").open
+new_bbq_4.photo.attach(io: image_4, filename: "bbq.png", content_type: "image/png")
+new_bbq_4.save
+
+image_5 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq5_olus5t.jpg").open
+new_bbq_5.photo.attach(io: image_5, filename: "bbq.png", content_type: "image/png")
+new_bbq_5.save
+
+image_6 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq6_ti8okp.jpg").open
+new_bbq_6.photo.attach(io: image_6, filename: "bbq.png", content_type: "image/png")
+new_bbq_6.save
+
+image_7 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq7_zp5knh.jpg").open
+new_bbq_7.photo.attach(io: image_7, filename: "bbq.png", content_type: "image/png")
+new_bbq_7.save
+
+image_8 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq8_dy0km0.jpg").open
+new_bbq_8.photo.attach(io: image_8, filename: "bbq.png", content_type: "image/png")
+new_bbq_8.save
+
+image_9 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741349789/bbq9_uusbxm.jpg").open
+new_bbq_9.photo.attach(io: image_9, filename: "bbq.png", content_type: "image/png")
+new_bbq_9.save
+
+image_10 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350780/bbq10_pxiqsu.jpg").open
+new_bbq_10.photo.attach(io: image_10, filename: "bbq.png", content_type: "image/png")
+new_bbq_10.save
+
+image_11 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq12_oxx7jo.jpg").open
+new_bbq_11.photo.attach(io: image_11, filename: "bbq.png", content_type: "image/png")
+new_bbq_11.save
+
+image_12 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq12_oxx7jo.jpg").open
+new_bbq_12.photo.attach(io: image_12, filename: "bbq.png", content_type: "image/png")
+new_bbq_12.save
+
+image_13 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq13_sgvt5a.jpg").open
+new_bbq_13.photo.attach(io: image_13, filename: "bbq.png", content_type: "image/png")
+new_bbq_13.save
+
+image_14 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350304/bbq14_vafmpz.jpg").open
+new_bbq_14.photo.attach(io: image_14, filename: "bbq.png", content_type: "image/png")
+new_bbq_14.save
+
+image_15 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq15_zov3vf.jpg").open
+new_bbq_15.photo.attach(io: image_15, filename: "bbq.png", content_type: "image/png")
+new_bbq_15.save
+
+image_16 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq16_chfihl.jpg").open
+new_bbq_16.photo.attach(io: image_16, filename: "bbq.png", content_type: "image/png")
+new_bbq_16.save
+
+image_17 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq17_jft8un.jpg").open
+new_bbq_17.photo.attach(io: image_17, filename: "bbq.png", content_type: "image/png")
+new_bbq_17.save
+
+image_18 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350451/bbq18_aphzlo.png").open
+new_bbq_18.photo.attach(io: image_18, filename: "bbq.png", content_type: "image/png")
+new_bbq_18.save
+
+image_19 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350451/bbq19_pkqweu.jpg").open
+new_bbq_19.photo.attach(io: image_19, filename: "bbq.png", content_type: "image/png")
+new_bbq_19.save
+
+image_20 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq20_fphqd4.jpg").open
+new_bbq_20.photo.attach(io: image_20, filename: "bbq.png", content_type: "image/png")
+new_bbq_20.save
+puts "> Attached 20 images"
 
 puts "> Creating Bookings"
 users = [new_user_1, new_user_2, new_user_3, new_user_4, new_user_5]
