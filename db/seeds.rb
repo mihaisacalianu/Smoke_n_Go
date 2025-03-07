@@ -79,19 +79,19 @@ image_10 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350
 new_bbq_10.photo.attach(io: image_10, filename: "bbq.png", content_type: "image/png")
 new_bbq_10.save
 
-image_11 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq12_oxx7jo.jpg").open
+image_11 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352838/bbq11_qouvo1.jpg").open
 new_bbq_11.photo.attach(io: image_11, filename: "bbq.png", content_type: "image/png")
 new_bbq_11.save
 
-image_12 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq12_oxx7jo.jpg").open
+image_12 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352838/bbq12_zady7i.jpg").open
 new_bbq_12.photo.attach(io: image_12, filename: "bbq.png", content_type: "image/png")
 new_bbq_12.save
 
-image_13 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq13_sgvt5a.jpg").open
+image_13 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352838/bbq13_iayp1r.jpg").open
 new_bbq_13.photo.attach(io: image_13, filename: "bbq.png", content_type: "image/png")
 new_bbq_13.save
 
-image_14 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350304/bbq14_vafmpz.jpg").open
+image_14 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352839/bbq14_fimvco.jpg").open
 new_bbq_14.photo.attach(io: image_14, filename: "bbq.png", content_type: "image/png")
 new_bbq_14.save
 
@@ -99,11 +99,11 @@ image_15 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350
 new_bbq_15.photo.attach(io: image_15, filename: "bbq.png", content_type: "image/png")
 new_bbq_15.save
 
-image_16 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq16_chfihl.jpg").open
+image_16 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352839/bbq16_dpe7db.jpg").open
 new_bbq_16.photo.attach(io: image_16, filename: "bbq.png", content_type: "image/png")
 new_bbq_16.save
 
-image_17 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq17_jft8un.jpg").open
+image_17 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352841/bbq17_zzp5sm.jpg").open
 new_bbq_17.photo.attach(io: image_17, filename: "bbq.png", content_type: "image/png")
 new_bbq_17.save
 
@@ -115,7 +115,7 @@ image_19 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350
 new_bbq_19.photo.attach(io: image_19, filename: "bbq.png", content_type: "image/png")
 new_bbq_19.save
 
-image_20 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741350305/bbq20_fphqd4.jpg").open
+image_20 = URI.parse("https://res.cloudinary.com/deogjsihz/image/upload/v1741352841/bbq20_b0yxt9.jpg").open
 new_bbq_20.photo.attach(io: image_20, filename: "bbq.png", content_type: "image/png")
 new_bbq_20.save
 puts "> Attached 20 images"

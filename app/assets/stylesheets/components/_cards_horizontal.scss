@@ -5,6 +5,7 @@
 
 .cards-horizontal {
   margin-top: 20px;
+  margin-bottom: 25px;
   overflow: hidden;
   height: 160px;
   background: white;
@@ -28,8 +29,8 @@
 }
 
 .cards-horizontal-image {
-  height: 160px;
-  width: 240px;
+  // height: 160px;
+  width: 300px;
   margin-bottom: 0;
   object-position: center;
   object-fit: cover;
