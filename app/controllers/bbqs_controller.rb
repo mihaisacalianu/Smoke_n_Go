@@ -3,7 +3,6 @@ class BbqsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    # redirect_to root_path unless params["booking"][:start_date].present? && params["booking"][:end_date].present?
     @bbqs = Bbq.all
     @start_date = params["booking"][:start_date]
     @end_date = params["booking"][:end_date]
@@ -96,9 +95,6 @@ class BbqsController < ApplicationController
     end
     [start_date, end_date]
   rescue ArgumentError
-    [nil, nil] # Handles invalid date errors
+    [nil, nil]
   end
 end
-
-
-# {"booking"=>{"end_date"=>"2025-03-20", "start_date"=>"2025-03-19"}, "id"=>"40"}
